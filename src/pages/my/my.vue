@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useMemberStore } from '@/stores'
+import { useMemberStore } from '@/stores';
 
-const memberStore = useMemberStore()
+const memberStore = useMemberStore();
 </script>
 
 <template>
@@ -10,7 +10,7 @@ const memberStore = useMemberStore()
     <button
       @tap="
         memberStore.setProfile({
-          nickname: '黑马先锋',
+          nickname: 'xts',
         })
       "
       size="mini"
@@ -19,7 +19,14 @@ const memberStore = useMemberStore()
     >
       保存用户信息
     </button>
-    <button @tap="memberStore.clearProfile()" size="mini" plain type="warn">清理用户信息</button>
+    <button
+      @tap="memberStore.clearProfile()"
+      size="mini"
+      plain
+      type="warn"
+    >
+      清理用户信息
+    </button>
   </view>
 </template>
 

@@ -25,8 +25,19 @@ export const useMemberStore = defineStore(
       clearProfile,
     }
   },
-  // TODO: 持久化
+
   {
-    persist: true,
+    // persist: true,
+    // 小程序持久化测试
+    persist: {
+      storage: {
+        getItem(key) {
+          return uni.getStorageSync(key);
+        },
+        setItem(key, value) {
+          uni.setStorageSync(key, value);
+        },
+      }
+    }
   },
 )
