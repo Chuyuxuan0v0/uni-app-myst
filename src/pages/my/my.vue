@@ -1,21 +1,19 @@
 <script setup lang="ts">
 import { useMemberStore } from '@/stores';
-import '@/utils/http'
+import { http } from '@/utils/http';
 
 const memberStore = useMemberStore();
 
-const getInfo = () => {
-
-  uni.request({
-    url: '/home/banner',
-    method:'GET',
-    success: res => {
-      console.log(res);
-    },
+const getInfo = async () => {
+  const data = await http<String[]>({ // 这个data的值决定了接受到的数组类型
+    url: '/member/pile',
+    method: 'GET'
   });
+  console.log('success',data);
+  
 };
 </script>
-
+  
 <template>
   <view class="my">
     <view>会员信息：{{ memberStore.profile }}</view>
@@ -39,11 +37,16 @@ const getInfo = () => {
     >
       清理用户信息
     </button>
-    <button  size="mini"
+    <button
+      size="mini"
       plain
-      type="warn"  @click="getInfo()">get Someting</button>
+      type="warn"
+      @click="getInfo()"
+    >
+      get Someting
+    </button>
   </view>
-</template> 
+</template>
 
 <style lang="scss">
 //
