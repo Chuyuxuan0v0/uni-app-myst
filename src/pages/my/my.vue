@@ -1,7 +1,19 @@
 <script setup lang="ts">
 import { useMemberStore } from '@/stores';
+import '@/utils/http'
 
 const memberStore = useMemberStore();
+
+const getInfo = () => {
+
+  uni.request({
+    url: '/home/banner',
+    method:'GET',
+    success: res => {
+      console.log(res);
+    },
+  });
+};
 </script>
 
 <template>
@@ -27,8 +39,11 @@ const memberStore = useMemberStore();
     >
       清理用户信息
     </button>
+    <button  size="mini"
+      plain
+      type="warn"  @click="getInfo()">get Someting</button>
   </view>
-</template>
+</template> 
 
 <style lang="scss">
 //
