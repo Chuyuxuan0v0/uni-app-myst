@@ -32,6 +32,14 @@
       }
     }
   ],
+  "easycom": {
+    // 是否开启自动扫描
+		"autoscan": true,
+		"custom": {
+			// uni-ui 规则如下配置
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+		}
+	},
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "",
