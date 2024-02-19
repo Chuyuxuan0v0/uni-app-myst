@@ -5,15 +5,15 @@ import { http } from '@/utils/http';
 const memberStore = useMemberStore();
 
 const getInfo = async () => {
-  const data = await http<String[]>({ // 这个data的值决定了接受到的数组类型
+  const data = await http<String[]>({
+    // 这个data的值决定了接受到的数组类型
     url: '/member/pile',
-    method: 'GET'
+    method: 'GET',
   });
-  console.log('success',data);
-  
+  console.log('success', data);
 };
 </script>
-  
+
 <template>
   <view class="my">
     <view>会员信息：{{ memberStore.profile }}</view>
